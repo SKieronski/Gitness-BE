@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 const workoutController = require('./controllers/workouts')
 app.use('/workouts', workoutController)
 
-//Exercises Controller
+//Exercises Controller -- might not need this one
 const exerciseController = require('./controllers/exercises')
 app.use('/workouts/exercises', exerciseController)
 
