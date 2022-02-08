@@ -1,9 +1,9 @@
 const mongoose = require('../db/connection')
 
-const exerciseSchema = new mongoose.Schema(
+const ExerciseSchema = new mongoose.Schema(
     {
         name: {
-            type = String,
+            type: String,
             required: true
         }, 
         reps: {
@@ -18,7 +18,7 @@ const exerciseSchema = new mongoose.Schema(
         },
         muscle_groups: {
             type: String,
-            required = true
+            required: true
         }, 
         description: {
             type: String,
@@ -31,5 +31,5 @@ const exerciseSchema = new mongoose.Schema(
     }
 )
 
-const Exercise = mongoose.model('Exercise', exerciseSchema)
-module.exports = Exercise
+// const Exercise = mongoose.model('Exercise', ExerciseSchema)
+module.exports = ExerciseSchema

@@ -1,9 +1,8 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const req = require('express/lib/request')
 app.use(cors())
-app.set('port')
+app.set('port', 8000)
 
 
 //==================================
@@ -21,7 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 //==================================
 
 app.get('/', (req, res) => {
-    res.redirect('/api')
+    res.redirect('/routines')
 })
 
 
@@ -29,13 +28,13 @@ app.get('/', (req, res) => {
 //CONTROLLERS
 //==================================
 
-// Workouts Controller
-const workoutController = require('./controllers/workouts')
-app.use('/workouts', workoutController)
+// Routines Controller
+const routineController = require('./controllers/routines')
+app.use('/routines', routineController)
 
 //Exercises Controller -- might not need this one
 const exerciseController = require('./controllers/exercises')
-app.use('/workouts/exercises', exerciseController)
+app.use('/routines/exercises', exerciseController)
 
 
 //==================================

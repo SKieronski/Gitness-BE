@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Exercise = require('../models/exercise')
-const Workout = require('../models/workout')
+const Routine = require('../models/routine')
 
 //NOT SURE IF WE NEED THIS ONE
 //GET exercise by ID
@@ -13,47 +13,47 @@ const Workout = require('../models/workout')
 //         .catch(next)
 // })
 
-//GET exercise by id
-router.post('/', (req, res, next) => {
-    const exerciseData = req.body
-    const workoutID = exerciseData.workoutID
-    Workout.findById(workoutID)
-        .then((workout) => {
-            workout.exercises.push(exerciseData)
-            return workout.save()
-        })
-        .then((workout) => res.status(201).json({ workout: workout}))
-        .catch(next)
-})
+//CREATE exercise by id
+// router.post('/', (req, res, next) => {
+//     const exerciseData = req.body
+//     const routineID = exerciseData.routineID
+//     Routine.findById(routineID)
+//         .then((routine) => {
+//             routine.exercises.push(exerciseData)
+//             return routine.save()
+//         })
+//         .then((routine) => res.status(201).json({ routine: routine }))
+//         .catch(next)
+// })
 
 //Delete exercise by Id
-router.delete('/:id', (req, res, next) => {
-    const id = req.params.id
-    Workout.findOne({ 'exercises._id': id })
-        .then((workout) => {
-            workout.exercises.id(id).remove()
-            return workout.save()
-        })
-        .then(() => res.sendStatus(204))
-        .catch(next)
-}) 
+// router.delete('/:id', (req, res, next) => {
+//     const id = req.params.id
+//     Routine.findOne({ 'exercises._id': id })
+//         .then((routine) => {
+//             routine.exercises.id(id).remove()
+//             return routine.save()
+//         })
+//         .then(() => res.sendStatus(204))
+//         .catch(next)
+// }) 
 
 //Update/patch by id -- don't use PUT because only changing one piece?
-router.patch('/:id', (req, res, next) => {
-    const id = req.params.id
-    const exerciseData = req.body
+// router.patch('/:id', (req, res, next) => {
+//     const id = req.params.id
+//     const exerciseData = req.body
 
-    Workout.findOne({
-        'exercises._id': id
-    })
-        .then((workout) => {
-            const exercise = workout.exercises.id(id)
-            exercise.set(exerciseData)
-            return workout.save()
-        })
-        .then(() => res.sendStatus(204))
-        .catch(next)
-})
+//     Routine.findOne({
+//         'exercises._id': id
+//     })
+//         .then((routine) => {
+//             const exercise = routine.exercises.id(id)
+//             exercise.set(exerciseData)
+//             return routine.save()
+//         })
+//         .then(() => res.sendStatus(204))
+//         .catch(next)
+// })
 
 
-moodule.exports = router
+module.exports = router

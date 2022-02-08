@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const db = mongoose.connection
 const mongoURI = process.env.DATABASE_URL
 
-mongoose.connect(mongoURI, { useNewParser: true })
+mongoose.connect(mongoURI)
 
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
 db.on('connected', () => console.log('mongo connected at: ', mongoURI))
