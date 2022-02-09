@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: true }))
 
 
 
-
 //==================================
 //ROUTES
 //==================================
@@ -34,7 +33,7 @@ app.use('/routines', routineController)
 
 //Exercises Controller -- might not need this one
 const exerciseController = require('./controllers/exercises')
-app.use('/routines/exercises', exerciseController)
+app.use('/exercises', exerciseController)
 
 
 //==================================
@@ -44,7 +43,7 @@ app.use('/routines/exercises', exerciseController)
 app.use((err, req, res, next) => {
     const statusCode = res.statusCode || 500
     const message = err.essage || 'Internal Server Error'
-    res.staus(statusCode).send(message)
+    res.status(statusCode).send(message)
 })
 
 app.listen(app.get('port'), () => {

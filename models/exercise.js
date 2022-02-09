@@ -17,12 +17,12 @@ const ExerciseSchema = new mongoose.Schema(
             required: true
         },
         muscle_groups: {
-            type: String,
+            type: [String],
             required: true
         }, 
         description: {
             type: String,
-            required: true
+            required: false
         },
         img_example: {
             type: String, 
