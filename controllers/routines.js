@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
 })
 
 //UPDATE/PATCH routine by id
-router.patch('/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
     const id = req.params.id
     const routineData = req.body
     Routine.findByIdAndUpdate({ _id: id }, routineData, { new: true })
