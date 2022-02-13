@@ -3,28 +3,22 @@ const mongoose = require('../db/connection')
 const ExerciseSchema = new mongoose.Schema(
     {
         exercise_name: {
-            type: String,
-            // required: false
+            type: String
         },
         reps: {
-            minmax: [Number],
-            // required: false
+            minmax: [Number]
         }, 
         sets: {
-            type: Number,
-            // required: false
+            type: Number
         },
         muscle_groups: {
-            type: [String],
-            // required: false
+            type: [String]
         }, 
         exercise_description: {
-            type: String,
-            // required: false
+            type: String
         },
         img_example: {
-            type: String, 
-            // required: false
+            type: String
         }
     }
 )
