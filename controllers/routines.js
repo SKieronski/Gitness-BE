@@ -23,7 +23,6 @@ router.post('/', (req, res, next) => {
     Routine.create(routineData)
     .then((routine) => res.status(201).json(routine))
     .catch(next)
-
 })
 
 //UPDATE/PATCH routine by id
