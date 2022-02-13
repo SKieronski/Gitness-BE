@@ -4,15 +4,15 @@ const ExerciseSchema = require('./exercise')
 
 const RoutineSchema = new mongoose.Schema({
 
-    name: {
+    routine_name: {
         type: String,
-        required: true
+        // required: false
     }, 
-   description: {
+    routine_description: {
        type: String,
-       required: true
-   },
-   exercises: [ExerciseSchema]
+    //    required: false
+    },
+    exercises: [ExerciseSchema]
 })
 
 
